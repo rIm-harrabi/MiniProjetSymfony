@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editeur index{% endblock %}
+
+{% block body %}
+    <h1>Editeur index</h1>
+
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomEditeur</th>
+                <th>Pays</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i, editeur in editeurs %}
+            <tr>
+                <td>{{ i+1 }}</td>
+                <td>{{ editeur.nomEditeur }}</td>
+                <td>{{ editeur.pays }}</td>
+                <td>{{ editeur.adresse }}</td>
+                <td>{{ editeur.telephone }}</td>
+                <td>
+                    <a href="{{ path('editeur_show', {'id': editeur.id}) }}">Afficher</a>
+                    <a href="{{ path('editeur_edit', {'id': editeur.id}) }}">Editer</a>
+                    <a href="{{ path('editeur_delete', {'id': editeur.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Pas d'enregistrements trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('editeur_new') }}">Nouveau editeur</a>
+{% endblock %}
