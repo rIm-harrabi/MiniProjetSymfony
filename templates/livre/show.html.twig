@@ -3,7 +3,7 @@
 {% block title %}Livre{% endblock %}
 
 {% block body %}
-    <h1>Livre</h1>
+    <h2>Livre</h2>
 
     <table class="table" border="1">
         <tbody>
@@ -48,9 +48,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('livre_index') }}">Retour</a>
+    <a href="{{ path('livre_index') }}">Return</a>
 
-    <a href="{{ path('livre_edit', {'id': livre.id}) }}">Editer</a>
+    <a href="{{ path('livre_edit', {'id': livre.id}) }}">Editor</a>
 
     {{ include('livre/_delete_form.html.twig') }}
 {% endblock %}
